@@ -30,7 +30,7 @@ class Channel(models.Model):
         if author_id != partner_chatgpt.id and chatgpt_name in msg_vals.get('record_name', '') or 'ChatGPT,' in msg_vals.get('record_name', '') and self.channel_type == 'chat':
             try:
                 response = openai.completions.create(
-                    model="gpt-3.5-turbo",
+                    model="gpt-4",
                     prompt=prompt,
                     temperature=0.6,
                     max_tokens=2,
@@ -47,7 +47,7 @@ class Channel(models.Model):
         elif author_id != partner_chatgpt.id and msg_vals.get('model', '') == 'mail.channel' and msg_vals.get('res_id', 0) == chatgpt_channel_id.id:
             try:
                 response = openai.completions.create(
-                    model="gpt-3.5-turbo",
+                    model="gpt-4",
                     prompt=prompt,
                     temperature=0.6,
                     max_tokens=2,
